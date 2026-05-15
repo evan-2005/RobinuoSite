@@ -103,14 +103,14 @@ h1, h2, h3, h4, .logo {
 }
 
 .logo img {
-    width: 85px; /* ~15% smaller than 100px */
+    width: 79px; /* ~7% smaller than 85px */
     height: auto;
     display: block;
     margin-top: -2px;
 }
 
 .footer .logo img {
-    width: 85px;
+    width: 79px;
 }
 
 .nav-links {
