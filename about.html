@@ -20,60 +20,63 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#programs">Programs</a></li>
                 <li><a href="index.html#location">Location</a></li>
-                <li><a href="about.html" class="btn btn-outline active" style="padding: 0.5rem 1rem; font-size: 0.85rem;">About Us</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
             </ul>
             <a href="https://wa.me/601133126359?text=I%20would%20like%20to%20sign%20up%20for%20a%20free%20trial%20class" class="btn btn-primary">Free Trial</a>
         </div>
     </nav>
 
-    <section class="about-hero" style="padding: 6rem 0; background: var(--bg-subtle);">
-        <div class="container">
-            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <h1 style="font-size: 3rem; margin-bottom: 2rem;">Our Story</h1>
-                <p style="font-size: 1.25rem; color: var(--text-main); line-height: 1.6; font-weight: 500;">
+    <header class="hero" style="background-color: var(--bg-subtle); padding: 4rem 0;">
+        <div class="container" style="text-align: center;">
+            <div class="section-header">
+                <h1 class="hero-title" style="margin-bottom: 1.5rem;">Our Story</h1>
+                <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto; font-size: 1.25rem;">
                     We believe every child is a builder, thinker, and storyteller.
                 </p>
             </div>
         </div>
-    </section>
+    </header>
 
-    <section class="about-content" style="padding: 5rem 0;">
+    <section id="story" style="padding: 4rem 0;">
         <div class="container">
-            <div style="max-width: 800px; margin: 0 auto;">
-                <div style="margin-bottom: 4rem;">
-                    <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem;">
-                        Founded by 3 visionaries who saw the need to move beyond traditional, no-fun learning. Having experienced how interactive, visual classes transform education, we now nurture kids with:
-                    </p>
-                </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 3rem;">
+                    Founded by 3 visionaries who saw the need to move beyond traditional, no-fun learning. Having experienced how interactive, visual classes transform education, we now nurture kids with:
+                </p>
 
-                <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
-                    <div class="value-item">
-                        <h3 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-shapes"></i> Foundation</h3>
-                        <p style="color: var(--text-muted);">Fun arithmetic and logic activities.</p>
+                <div class="grid-3" style="margin-bottom: 2rem;">
+                    <div class="card" style="padding: 1.5rem;">
+                        <div class="card-icon"><i class="fas fa-shapes"></i></div>
+                        <h3>Foundation</h3>
+                        <p style="font-size: 0.9rem;">Fun arithmetic and logic activities.</p>
                     </div>
-                    <div class="value-item">
-                        <h3 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-users"></i> Growth</h3>
-                        <p style="color: var(--text-muted);">Teamwork and confidence for social-emotional skills.</p>
+                    <div class="card" style="padding: 1.5rem;">
+                        <div class="card-icon"><i class="fas fa-users"></i></div>
+                        <h3>Growth</h3>
+                        <p style="font-size: 0.9rem;">Teamwork and confidence for social-emotional skills.</p>
                     </div>
-                    <div class="value-item">
-                        <h3 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-laptop-code"></i> Technology</h3>
-                        <p style="color: var(--text-muted);">Coding, robotics, and STEAM.</p>
-                    </div>
-                    <div class="value-item">
-                        <h3 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-hand-pointer"></i> Engagement</h3>
-                        <p style="color: var(--text-muted);">Hands-on, interactive learning.</p>
-                    </div>
-                    <div class="value-item">
-                        <h3 style="color: var(--primary); margin-bottom: 0.5rem;"><i class="fas fa-lightbulb"></i> Creativity</h3>
-                        <p style="color: var(--text-muted);">Curiosity and problem-solving through trial-and-error.</p>
+                    <div class="card" style="padding: 1.5rem;">
+                        <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+                        <h3>Technology</h3>
+                        <p style="font-size: 0.9rem;">Coding, robotics, and STEAM.</p>
                     </div>
                 </div>
 
-                <div style="margin-top: 5rem; padding: 3rem; background: var(--bg-subtle); border-radius: var(--radius); text-align: center; border: 1px solid var(--border-color);">
-                    <h2 style="margin-bottom: 1rem; color: var(--text-main);">Adversity Quotient (AQ)</h2>
-                    <p style="font-size: 1.1rem; color: var(--text-muted);">
-                        We encourage Adversity Quotient (AQ) – the grit to face challenges and never give up.
-                    </p>
+                <div class="grid-3" style="display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap;">
+                    <div class="card" style="padding: 1.5rem; flex: 1; min-width: 250px;">
+                        <div class="card-icon"><i class="fas fa-hand-pointer"></i></div>
+                        <h3>Engagement</h3>
+                        <p style="font-size: 0.9rem;">Hands-on, interactive learning.</p>
+                    </div>
+                    <div class="card" style="padding: 1.5rem; flex: 1; min-width: 250px;">
+                        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                        <h3>Creativity</h3>
+                        <p style="font-size: 0.9rem;">Curiosity and problem-solving through trial-and-error.</p>
+                    </div>
+                </div>
+
+                <div class="aq-callout">
+                    <p><strong>Adversity Quotient (AQ):</strong> We encourage the grit to face challenges and never give up.</p>
                 </div>
             </div>
         </div>
