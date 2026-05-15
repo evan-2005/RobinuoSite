@@ -103,15 +103,28 @@ h1, h2, h3, h4, .logo {
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+    width: 100px;
+    height: auto;
     display: block;
+}
+
+.footer .logo img {
+    width: 300px; /* Exactly 3x the header logo size */
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 2rem; /* ~32px */
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition);
 }
 
 .nav-links a:hover, .text-blue:hover {
