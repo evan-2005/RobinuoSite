@@ -106,10 +106,11 @@ h1, h2, h3, h4, .logo {
     width: 100px;
     height: auto;
     display: block;
+    margin-top: -2px; /* Fine-tuned alignment */
 }
 
 .footer .logo img {
-    width: 300px; /* Exactly 3x the header logo size */
+    width: 100px; /* Matched to header size as requested */
 }
 
 .nav-links {
