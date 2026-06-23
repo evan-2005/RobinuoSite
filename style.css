@@ -10,6 +10,17 @@
     --radius: 12px;
     --nav-height: 70px;
     --transition: all 0.3s ease;
+
+    /* Playful supporting accents for a kids-focused robotics brand */
+    --accent-2: #7C3AED;
+    --accent-3: #10B981;
+    --accent-pink: #EC4899;
+    --grad-hero: linear-gradient(135deg, var(--primary) 0%, var(--accent-2) 100%);
+    --grad-warm: linear-gradient(135deg, var(--accent) 0%, var(--accent-pink) 100%);
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 12px 30px rgba(15, 23, 42, 0.09);
+    --shadow-lg: 0 22px 50px rgba(15, 23, 42, 0.14);
+    --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 * {
@@ -373,4 +384,308 @@ section {
     .card { padding: 1.5rem; }
     .hero-btns .btn { width: 100%; justify-content: center; }
     .image-box iframe { height: 240px; }
+}
+
+/* ==========================================================================
+   Visual polish — depth, motion, and playful accents
+   ========================================================================== */
+
+/* Scroll-reveal: hidden state only applies once JS is active (progressive
+   enhancement — no-JS users still see everything). */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out-expo, ease), transform 0.7s var(--ease-out-expo, ease);
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Buttons get more depth and a springier hover */
+.btn-primary {
+    box-shadow: 0 8px 18px rgba(255, 122, 0, 0.28);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 26px rgba(255, 122, 0, 0.38);
+}
+
+.btn-outline:hover {
+    transform: translateY(-3px);
+}
+
+/* Hero atmosphere — soft floating colour blobs behind the content */
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(120% 120% at 100% 0%, #EEF4FF 0%, var(--bg-subtle) 55%);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 320px;
+    height: 320px;
+    background: var(--primary);
+    top: -120px;
+    right: -60px;
+    animation: float 11s ease-in-out infinite;
+}
+
+.hero::after {
+    width: 260px;
+    height: 260px;
+    background: var(--accent);
+    bottom: -110px;
+    left: -50px;
+    opacity: 0.35;
+    animation: float 13s ease-in-out infinite reverse;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(18px, -22px); }
+}
+
+/* Hero badge pill */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.4rem 0.9rem;
+    margin-bottom: 1.25rem;
+    border-radius: 999px;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.hero-badge i {
+    color: var(--primary);
+}
+
+/* Gradient text accent */
+.gradient-text {
+    background: var(--grad-hero);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.hero .image-box {
+    box-shadow: var(--shadow-lg);
+}
+
+/* Highlights strip under the hero */
+.highlights {
+    padding: 0;
+    margin-top: -2.5rem;
+    position: relative;
+    z-index: 5;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+}
+
+.highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.highlight i {
+    font-size: 1.1rem;
+    color: var(--primary);
+    background: #EBF4FF;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.highlight div {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+}
+
+.highlight-title {
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+}
+
+.highlight-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+}
+
+/* Section titles get a centered gradient underline */
+.section-header .section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.6rem;
+}
+
+.section-header .section-title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 4px;
+    border-radius: 4px;
+    background: var(--grad-warm);
+}
+
+/* Program cards — accent bar reveal, lift, and a friendlier icon */
+.card {
+    position: relative;
+    overflow: hidden;
+    background: var(--white);
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--grad-hero);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s var(--ease-out-expo, ease);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: transparent;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #EBF4FF 0%, #F3ECFF 100%);
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    transition: transform 0.35s var(--ease-out-back);
+}
+
+.card:hover .card-icon {
+    transform: rotate(-6deg) scale(1.06);
+}
+
+.card-icon .brand-logo {
+    margin: 0;
+}
+
+/* Gallery — zoom on hover with a subtle gradient veil */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.25), transparent 55%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.gallery-item img {
+    transition: transform 0.6s var(--ease-out-expo, ease);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+
+.gallery-item:hover::after {
+    opacity: 1;
+}
+
+/* Map frame depth */
+.image-box iframe {
+    box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+    .highlights {
+        margin-top: 1.5rem;
+    }
+    .highlights-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    .highlight {
+        justify-content: flex-start;
+    }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    .hero::before,
+    .hero::after {
+        animation: none;
+    }
+    .card:hover,
+    .btn-primary:hover,
+    .btn-outline:hover {
+        transform: none;
+    }
+    .gallery-item:hover img {
+        transform: none;
+    }
 }

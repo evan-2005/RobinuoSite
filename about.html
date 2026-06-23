@@ -30,7 +30,7 @@
     <header class="hero" style="background-color: var(--bg-subtle); padding: 4rem 0;">
         <div class="container" style="text-align: center;">
             <div class="section-header">
-                <h1 class="hero-title" style="margin-bottom: 1.5rem;">Our Story</h1>
+                <h1 class="hero-title" style="margin-bottom: 1.5rem;">Our <span class="gradient-text">Story</span></h1>
                 <p class="hero-subtitle" style="max-width: 800px; margin: 0 auto; font-size: 1.25rem;">
                     We believe every child is a builder, thinker, and storyteller.
                 </p>
@@ -98,7 +98,7 @@
             </div>
             <div>
                 <h4>Follow Us</h4>
-                <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                <div class="social-links" style="display: flex; gap: 1rem; margin-top: 0.5rem;">
                     <a href="https://www.facebook.com/p/Robinuo-Learning-Hub-61576348565523/" class="text-blue" target="_blank"><i class="fab fa-facebook"></i></a>
                     <a href="https://www.instagram.com/robinuokids?igsh=Z3NlZzNkN3hyNHJi" class="text-blue" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.tiktok.com/@robinuokids?_r=1&_t=ZS-96NeDbq8sq5" class="text-blue" target="_blank"><i class="fab fa-tiktok"></i></a>
@@ -112,9 +112,40 @@
         </div>
     </footer>
     <script>
-        document.querySelectorAll('.current-year').forEach(function (el) {
-            el.textContent = new Date().getFullYear();
-        });
+        (function () {
+            var d = document;
+            d.documentElement.classList.add('js');
+
+            // Dynamic copyright year
+            d.querySelectorAll('.current-year').forEach(function (el) {
+                el.textContent = new Date().getFullYear();
+            });
+
+            // Stagger grid children for a cascading reveal
+            d.querySelectorAll('.grid-3, .gallery-grid, .highlights-grid').forEach(function (grid) {
+                Array.prototype.forEach.call(grid.children, function (child, i) {
+                    child.style.transitionDelay = (i * 70) + 'ms';
+                });
+            });
+
+            // Scroll-reveal on intersection
+            var revealEls = d.querySelectorAll('.reveal, .card, .gallery-item, .section-header');
+            revealEls.forEach(function (el) { el.classList.add('reveal'); });
+
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealEls.forEach(function (el) { io.observe(el); });
+            } else {
+                revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+            }
+        })();
     </script>
 </body>
 </html>

@@ -37,8 +37,9 @@
 
     <header class="hero">
         <div class="container hero-grid">
-            <div class="hero-content">
-                <h1 class="hero-title">Creative, Hands-On Robotics Learning</h1>
+            <div class="hero-content reveal">
+                <span class="hero-badge"><i class="fas fa-robot"></i> Robotics &middot; Coding &middot; AI for ages 5&ndash;12</span>
+                <h1 class="hero-title">Creative, Hands-On <span class="gradient-text">Robotics Learning</span></h1>
                 <p class="hero-subtitle">Build, code, and innovate with real-world robotics projects. We empower kids to
                     become the creators of tomorrow.</p>
                 <div class="hero-btns">
@@ -47,11 +48,44 @@
                     <a href="#programs" class="btn btn-outline">View Programs</a>
                 </div>
             </div>
-            <div class="image-box">
+            <div class="image-box reveal">
                 <img src="images/hero.jpeg" alt="Robotics Education">
             </div>
         </div>
     </header>
+
+    <section class="highlights">
+        <div class="container highlights-grid">
+            <div class="highlight reveal">
+                <i class="fas fa-microchip"></i>
+                <div>
+                    <span class="highlight-title">6 Programs</span>
+                    <span class="highlight-sub">From first blocks to AI</span>
+                </div>
+            </div>
+            <div class="highlight reveal">
+                <i class="fas fa-child-reaching"></i>
+                <div>
+                    <span class="highlight-title">Ages 5&ndash;12</span>
+                    <span class="highlight-sub">Age-matched paths</span>
+                </div>
+            </div>
+            <div class="highlight reveal">
+                <i class="fas fa-screwdriver-wrench"></i>
+                <div>
+                    <span class="highlight-title">Hands-On</span>
+                    <span class="highlight-sub">Real builds, real code</span>
+                </div>
+            </div>
+            <div class="highlight reveal">
+                <i class="fas fa-location-dot"></i>
+                <div>
+                    <span class="highlight-title">Puchong</span>
+                    <span class="highlight-sub">Bandar Puteri hub</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section id="programs">
         <div class="container">
@@ -208,9 +242,40 @@
         </div>
     </footer>
     <script>
-        document.querySelectorAll('.current-year').forEach(function (el) {
-            el.textContent = new Date().getFullYear();
-        });
+        (function () {
+            var d = document;
+            d.documentElement.classList.add('js');
+
+            // Dynamic copyright year
+            d.querySelectorAll('.current-year').forEach(function (el) {
+                el.textContent = new Date().getFullYear();
+            });
+
+            // Stagger grid children for a cascading reveal
+            d.querySelectorAll('.grid-3, .gallery-grid, .highlights-grid').forEach(function (grid) {
+                Array.prototype.forEach.call(grid.children, function (child, i) {
+                    child.style.transitionDelay = (i * 70) + 'ms';
+                });
+            });
+
+            // Scroll-reveal on intersection
+            var revealEls = d.querySelectorAll('.reveal, .card, .gallery-item, .section-header');
+            revealEls.forEach(function (el) { el.classList.add('reveal'); });
+
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+                revealEls.forEach(function (el) { io.observe(el); });
+            } else {
+                revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+            }
+        })();
     </script>
 </body>
 
