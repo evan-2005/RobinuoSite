@@ -190,6 +190,14 @@ h1, h2, h3, h4, .logo {
     display: block;
 }
 
+/* Map embed: force block so it fills the container and drops the inline baseline gap */
+.image-box iframe {
+    display: block;
+    width: 100%;
+    height: 320px;
+    border: 0;
+}
+
 /* Sections */
 section {
     padding: 4rem 0;
@@ -234,6 +242,14 @@ section {
     font-size: 2rem;
     color: var(--primary);
     margin-bottom: 1rem;
+}
+
+/* Brand logos (Scratch, Arduino) sized to match the icon scale */
+.card-icon .brand-logo {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    display: block;
 }
 
 .card h3 {
@@ -330,7 +346,30 @@ section {
         grid-template-columns: 1fr;
         text-align: center;
     }
+    .hero { padding: 2.5rem 0; }
     .hero-title { font-size: 2.2rem; }
-    .hero-btns { justify-content: center; }
+    .hero-btns { justify-content: center; flex-wrap: wrap; }
     .nav-links { display: none; }
+
+    section { padding: 3rem 0; }
+    .section-header { margin-bottom: 2rem; }
+
+    /* Stack the location block and give the map a clean, full-width frame */
+    #location .hero-grid { gap: 2rem; }
+    .location-details { order: -1; }
+    .image-box iframe { height: 280px; }
+
+    /* Flex containers ignore text-align, so center them explicitly on mobile */
+    .footer .logo { justify-content: center; }
+    .social-links { justify-content: center; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: 0 1rem; }
+    .hero-title { font-size: 1.9rem; }
+    .hero-subtitle { font-size: 1rem; }
+    .section-title { font-size: 1.8rem; }
+    .card { padding: 1.5rem; }
+    .hero-btns .btn { width: 100%; justify-content: center; }
+    .image-box iframe { height: 240px; }
 }
