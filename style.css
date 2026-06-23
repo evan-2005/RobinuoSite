@@ -424,7 +424,7 @@ section {
     /* Soft top-right tint over a vertical fade that resolves to the white
        Programs section below, so there's no hard seam at the hero's edge. */
     background:
-        radial-gradient(110% 90% at 100% 0%, rgba(47, 128, 237, 0.12) 0%, rgba(47, 128, 237, 0) 45%),
+        radial-gradient(110% 90% at 100% 0%, rgba(255, 138, 76, 0.10) 0%, rgba(255, 138, 76, 0) 48%),
         linear-gradient(180deg, var(--bg-subtle) 0%, #FBFCFE 55%, var(--bg-color) 100%);
 }
 
@@ -433,28 +433,30 @@ section {
     content: "";
     position: absolute;
     border-radius: 50%;
-    filter: blur(60px);
-    opacity: 0.5;
+    filter: blur(80px);
     z-index: 0;
     pointer-events: none;
 }
 
+/* Soft warm glow, top-right — kept subtle and on-brand */
 .hero::before {
-    width: 320px;
-    height: 320px;
-    background: var(--primary);
+    width: 300px;
+    height: 300px;
+    background: #FFB37A;
+    opacity: 0.3;
     top: -120px;
     right: -60px;
     animation: float 11s ease-in-out infinite;
 }
 
+/* Matching warm glow, bottom-left */
 .hero::after {
     width: 260px;
     height: 260px;
     background: var(--accent);
+    opacity: 0.28;
     bottom: -110px;
     left: -50px;
-    opacity: 0.35;
     animation: float 13s ease-in-out infinite reverse;
 }
 
