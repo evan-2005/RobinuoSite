@@ -108,8 +108,13 @@
         <div class="container footer-bottom" style="margin-top: 3rem; text-align: center;">
             <div style="width: 100%; max-width: 900px; height: 1px; background: var(--border-color); margin: 0 auto 2rem;"></div>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Building the next generation of thinkers, makers, and innovators.</p>
-            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem;">&copy; 2024 Robinuo Learning Hub. All rights reserved.</p>
+            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 0.5rem;">&copy; <span class="current-year">2024</span> Robinuo Learning Hub. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('.current-year').forEach(function (el) {
+            el.textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
