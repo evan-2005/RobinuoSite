@@ -35,7 +35,15 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background-color: var(--bg-color);
+    /* One continuous, subtle warm wash across the whole document so every
+       section shares the same backdrop instead of hard white/grey blocks. */
+    background: linear-gradient(180deg,
+            #FFF4EC 0%,
+            #FDFBFA 35%,
+            #FFFFFF 60%,
+            #FCFBFE 80%,
+            #FFF6EE 100%);
+    background-repeat: no-repeat;
     color: var(--text-main);
     line-height: 1.5;
     overflow-x: hidden;
@@ -333,7 +341,7 @@ section {
 .footer {
     padding: 3rem 0;
     border-top: 1px solid var(--border-color);
-    background: white;
+    background: transparent;
 }
 
 .footer-grid {
@@ -421,11 +429,9 @@ section {
 .hero {
     position: relative;
     overflow: hidden;
-    /* Soft top-right tint over a vertical fade that resolves to the white
-       Programs section below, so there's no hard seam at the hero's edge. */
-    background:
-        radial-gradient(110% 90% at 100% 0%, rgba(255, 138, 76, 0.10) 0%, rgba(255, 138, 76, 0) 48%),
-        linear-gradient(180deg, var(--bg-subtle) 0%, #FBFCFE 55%, var(--bg-color) 100%);
+    /* Just a soft warm tint in the top-right; the page-wide body gradient
+       provides the base, so the hero blends seamlessly into the rest. */
+    background: radial-gradient(110% 90% at 100% 0%, rgba(255, 138, 76, 0.12) 0%, rgba(255, 138, 76, 0) 48%);
 }
 
 .hero::before,
