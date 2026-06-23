@@ -250,6 +250,7 @@ section {
     height: 2rem;
     object-fit: contain;
     display: block;
+    margin: 0 auto;
 }
 
 .card h3 {
