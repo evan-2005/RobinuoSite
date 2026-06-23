@@ -35,15 +35,11 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    /* One continuous, subtle warm wash across the whole document so every
-       section shares the same backdrop instead of hard white/grey blocks. */
-    background: linear-gradient(180deg,
-            #FFF4EC 0%,
-            #FDFBFA 35%,
-            #FFFFFF 60%,
-            #FCFBFE 80%,
-            #FFF6EE 100%);
-    background-repeat: no-repeat;
+    /* Clean base with a faint dot-grid texture — a subtle, on-brand
+       "blueprint" feel that stays consistent across every section. */
+    background-color: #FCFCFD;
+    background-image: radial-gradient(rgba(47, 128, 237, 0.06) 1.1px, transparent 1.1px);
+    background-size: 24px 24px;
     color: var(--text-main);
     line-height: 1.5;
     overflow-x: hidden;
