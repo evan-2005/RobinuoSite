@@ -35,11 +35,13 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    /* Clean base with a faint dot-grid texture — a subtle, on-brand
-       "blueprint" feel that stays consistent across every section. */
+    /* No gradients: a seamless blueprint-grid tile with small circuit nodes.
+       It repeats infinitely across the whole page, so it never clips or
+       cuts off at a section edge. */
     background-color: #FCFCFD;
-    background-image: radial-gradient(rgba(47, 128, 237, 0.06) 1.1px, transparent 1.1px);
-    background-size: 24px 24px;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'48'%20height%3D'48'%20viewBox%3D'0%200%2048%2048'%3E%3Cg%20fill%3D'none'%20stroke%3D'%232F80ED'%20stroke-opacity%3D'0.07'%3E%3Cpath%20d%3D'M48%200H0V48'%2F%3E%3C%2Fg%3E%3Cg%20fill%3D'%232F80ED'%20fill-opacity%3D'0.11'%3E%3Ccircle%20cx%3D'0'%20cy%3D'0'%20r%3D'1.6'%2F%3E%3Ccircle%20cx%3D'48'%20cy%3D'0'%20r%3D'1.6'%2F%3E%3Ccircle%20cx%3D'0'%20cy%3D'48'%20r%3D'1.6'%2F%3E%3Ccircle%20cx%3D'48'%20cy%3D'48'%20r%3D'1.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+    background-size: 48px 48px;
+    background-repeat: repeat;
     color: var(--text-main);
     line-height: 1.5;
     overflow-x: hidden;
@@ -166,7 +168,8 @@ h1, h2, h3, h4, .logo {
 /* Hero Section */
 .hero {
     padding: 4rem 0;
-    background-color: var(--bg-subtle);
+    /* Transparent so the body's warm glow flows through without a seam. */
+    background: transparent;
 }
 
 .hero-grid {
@@ -421,55 +424,16 @@ section {
     transform: translateY(-3px);
 }
 
-/* Hero atmosphere — soft floating colour blobs behind the content */
+/* Hero is transparent — the page-wide blueprint pattern shows through, so
+   there are no glow blobs to clip at the hero's edges. */
 .hero {
     position: relative;
     overflow: hidden;
-    /* Just a soft warm tint in the top-right; the page-wide body gradient
-       provides the base, so the hero blends seamlessly into the rest. */
-    background: radial-gradient(110% 90% at 100% 0%, rgba(255, 138, 76, 0.12) 0%, rgba(255, 138, 76, 0) 48%);
-}
-
-.hero::before,
-.hero::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(80px);
-    z-index: 0;
-    pointer-events: none;
-}
-
-/* Soft warm glow, top-right — kept subtle and on-brand */
-.hero::before {
-    width: 300px;
-    height: 300px;
-    background: #FFB37A;
-    opacity: 0.3;
-    top: -120px;
-    right: -60px;
-    animation: float 11s ease-in-out infinite;
-}
-
-/* Matching warm glow, bottom-left */
-.hero::after {
-    width: 260px;
-    height: 260px;
-    background: var(--accent);
-    opacity: 0.28;
-    bottom: -110px;
-    left: -50px;
-    animation: float 13s ease-in-out infinite reverse;
 }
 
 .hero .container {
     position: relative;
     z-index: 1;
-}
-
-@keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(18px, -22px); }
 }
 
 /* Hero badge pill */
