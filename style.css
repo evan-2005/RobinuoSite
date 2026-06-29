@@ -396,6 +396,97 @@ section {
     font-size: 0.9rem;
 }
 
+/* Teacher resources page — list of links to external files (Drive, Sheets…) */
+.resources-section {
+    padding: 2rem 0 5rem;
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.resource-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text-main);
+    transition: var(--transition);
+}
+
+.resource-card:hover {
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
+}
+
+.resource-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: #EBF4FF;
+    color: var(--primary);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.resource-icon.drive {
+    background: #EAF1FE;
+    color: #1A73E8;
+}
+
+.resource-icon.excel {
+    background: #E6F4EA;
+    color: #1E8E3E;
+}
+
+.resource-icon.pdf {
+    background: #FDECEC;
+    color: #D93025;
+}
+
+.resource-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.resource-text h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.15rem;
+}
+
+.resource-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.resource-arrow {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.resource-card:hover .resource-arrow {
+    color: var(--primary);
+}
+
+@media (max-width: 768px) {
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
     .hero-grid, .grid-3, .footer-grid {
         grid-template-columns: 1fr;
